@@ -3,16 +3,7 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     User = require('./api/user/model'),
-    bodyParser = require('body-parser')
-
-const http = require('http')
-const port = 3000
-
-const requestHandler = (request, response) => {
-    console.log(request.url)
-    response.end('Hello Node.js Server!')
-}
-const server = http.createServer(requestHandler)
+    bodyParser = require('body-parser');
 
 
     mongoose.Promise = global.Promise;
