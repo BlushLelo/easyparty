@@ -1,6 +1,5 @@
 var express = require('express'),
     app = express(),
-    router = express.Router(),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     User = require('./api/user/model'),
@@ -13,7 +12,11 @@ var express = require('express'),
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
 
-    router.all('./api/routes/*');
+    var userRoute = require('./api/routes/user');
+    userRoute(app);
+
+    var eventRoute = require('./api/routes/event') ;
+    eventRoute(app);
 
     app.listen(port);
 
