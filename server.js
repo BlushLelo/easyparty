@@ -3,6 +3,7 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     User = require('./api/user/model'),
+    Events = require('./api/events/model'),
     bodyParser = require('body-parser');
 
 
@@ -14,6 +15,8 @@ var express = require('express'),
 
     var routes = require('./api/routes/user');
     routes(app);
+    var routes2 = require('./api/routes/event');
+    routes2(app);
 
 
     app.listen(port);
