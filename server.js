@@ -12,11 +12,9 @@ var express = require('express'),
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
 
-    var userRoute = require('./api/routes/user');
-    userRoute(app);
+    var routes = require('./api/routes/user');
+    routes(app);
 
-    var eventRoute = require('./api/routes/event') ;
-    eventRoute(app);
 
     app.listen(port);
 
