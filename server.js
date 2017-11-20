@@ -2,8 +2,7 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
-    user = require('./api/user/model'),
-    event = require('./api/events/model'),
+    User = require('./api/user/model'),
     bodyParser = require('body-parser');
 
 
@@ -13,9 +12,8 @@ var express = require('express'),
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
 
-
-    app.use(require('./api/routes/user'));
-    app.use(require('./api/routes/event'));
+    var routes = require('./api/routes/');
+    routes(app);
 
     app.listen(port);
 
